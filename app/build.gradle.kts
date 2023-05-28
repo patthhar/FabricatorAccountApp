@@ -5,17 +5,17 @@ plugins {
 }
 
 android {
-  namespace = "me.darthwithap.android.fabricatoraccount"
-  compileSdk = 33
+  namespace = ProjectConfig.appNamespace
+  compileSdk = ProjectConfig.compileSdk
 
   defaultConfig {
-    applicationId = "me.darthwithap.android.fabricatoraccount"
-    minSdk = 24
-    targetSdk = 33
-    versionCode = 1
-    versionName = "1.0"
+    applicationId = ProjectConfig.applicationId
+    minSdk = ProjectConfig.minSdk
+    targetSdk = ProjectConfig.targetSdk
+    versionCode = ProjectConfig.versionCode
+    versionName = ProjectConfig.versionName
 
-    testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    testInstrumentationRunner = ProjectConfig.testInstrumentationRunner
     vectorDrawables {
       useSupportLibrary = true
     }
