@@ -7,5 +7,5 @@ data class FromFabricatorSlip(
   val dateOfReceiving: LocalDate,
   val fabricator: Fabricator,
   val receivedFinishedGoods: List<ReceivableFinishedGood>,
-  val totalCharge: Int = 0 //TODO: Calculate using a useCase
+  val totalCharge: Int = 0, //TODO: Calculate using a useCase
 )
