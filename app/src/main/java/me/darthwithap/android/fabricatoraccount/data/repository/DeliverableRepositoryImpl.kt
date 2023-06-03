@@ -22,4 +22,8 @@ class DeliverableRepositoryImpl @Inject constructor(
     TODO("Not yet implemented")
   }
 
+  override fun getDeliverableById(deliverableId: String): FabricatorDeliverable {
+    TODO("Not yet implemented")
+  }
+
 }

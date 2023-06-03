@@ -20,5 +20,5 @@ interface RawMaterialDao {
     SELECT * FROM RawMaterialEntity WHERE id=:id
   """
   )
-  fun getRawMaterialById(id: String): Flow<RawMaterialEntity>
+  fun getRawMaterialById(id: String): RawMaterialEntity
 }
