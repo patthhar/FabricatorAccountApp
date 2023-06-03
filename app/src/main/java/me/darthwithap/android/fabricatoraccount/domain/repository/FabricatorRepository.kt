@@ -7,6 +7,6 @@ interface FabricatorRepository {
   suspend fun upsertFabricator(fabricator: Fabricator)
   suspend fun deleteFabricator(fabricator: Fabricator)
   suspend fun deleteAllFabricators()
-  fun getFabricatorById(id: String): Flow<Fabricator>
+  fun getFabricatorById(id: String): Fabricator
   suspend fun getAllFabricators(): Flow<List<Fabricator>?>
 }

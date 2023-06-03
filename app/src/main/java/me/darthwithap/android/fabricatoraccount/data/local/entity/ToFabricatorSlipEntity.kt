@@ -5,12 +5,12 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class ToFabricatorSlipEntity(
-  @PrimaryKey(autoGenerate = true) val id: Int,
   val slipNumber: Int,
   val dayOfMonth: Int,
   val month: Int,
   val year: Int,
   val fabricatorId: String,
   val isComplete: Boolean = false,
-  val isActive: Boolean = !isComplete
+  val isActive: Boolean = !isComplete,
+  @PrimaryKey(autoGenerate = true) val id: Int = 0
 )

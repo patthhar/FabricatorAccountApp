@@ -8,6 +8,7 @@ import me.darthwithap.android.fabricatoraccount.data.local.dao.FabricatorDao
 import me.darthwithap.android.fabricatoraccount.data.local.dao.FinishedGoodDao
 import me.darthwithap.android.fabricatoraccount.data.local.dao.FinishedGoodReceivedDao
 import me.darthwithap.android.fabricatoraccount.data.local.dao.FromFabricatorSlipDao
+import me.darthwithap.android.fabricatoraccount.data.local.dao.RawMaterialDao
 import me.darthwithap.android.fabricatoraccount.data.local.dao.RawMaterialSentDao
 import me.darthwithap.android.fabricatoraccount.data.local.dao.ReceivableDao
 import me.darthwithap.android.fabricatoraccount.data.local.dao.ToFabricatorSlipDao
@@ -44,6 +45,7 @@ abstract class AppDatabase : RoomDatabase() {
   abstract val finishedGoodDao: FinishedGoodDao
   abstract val finishedGoodReceivedDao: FinishedGoodReceivedDao
   abstract val fromFabricatorSlipDao: FromFabricatorSlipDao
+  abstract val rawMaterialDao: RawMaterialDao
   abstract val rawMaterialSentDao: RawMaterialSentDao
   abstract val receivableDao: ReceivableDao
   abstract val toFabricatorSlipDao: ToFabricatorSlipDao

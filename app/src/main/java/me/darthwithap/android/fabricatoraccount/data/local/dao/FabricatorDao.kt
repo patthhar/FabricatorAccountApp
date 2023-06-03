@@ -18,7 +18,7 @@ interface FabricatorDao {
   suspend fun deleteAllFabricators()
 
   @Query("SELECT * FROM FabricatorEntity WHERE id=:id")
-  fun getFabricatorById(id: String): FabricatorEntity
+  fun getFabricatorById(id: String): FabricatorEntity?
 
   @Query("SELECT * FROM FabricatorEntity")
   suspend fun getAllFabricators(): List<FabricatorEntity>?

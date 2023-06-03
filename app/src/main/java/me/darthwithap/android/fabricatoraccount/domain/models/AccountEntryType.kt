@@ -1,19 +1,20 @@
 package me.darthwithap.android.fabricatoraccount.domain.models
 
-sealed class AccountEntryType {
-  data class CashPayment(val typeName: String, val amount: Int = 0) : AccountEntryType()
+sealed class AccountEntryType(val name: String) {
+  data class CashPayment(val amount: Int = 0) :
+    AccountEntryType("cashPayment")
+
   data class MaterialSent(
-    val typeName: String,
     val sentMaterials: List<FabricatorReceivable>? = null
   ) :
-    AccountEntryType()
+    AccountEntryType("materialSent")
 
   companion object {
     fun fromString(name: String): AccountEntryType {
       return when (name) {
-        "cashPayment" -> CashPayment(name)
-        "materialSent" -> MaterialSent(name)
-        else -> CashPayment(name)
+        "cashPayment" -> CashPayment()
+        "materialSent" -> MaterialSent()
+        else -> CashPayment()
       }
     }
   }

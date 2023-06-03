@@ -17,4 +17,9 @@ interface DeliverableDao {
 
   @Query("DELETE FROM DeliverableEntity WHERE fabricatorId=:id")
   suspend fun deleteDeliverablesForFabricator(id: String)
+
+  @Query("""
+    SELECT * FROM DeliverableEntity WHERE id=:id
+  """)
+  fun getDeliverableById(id: String): DeliverableEntity
 }
