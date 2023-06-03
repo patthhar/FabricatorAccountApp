@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 @Entity
 data class FromFabricatorSlipEntity(
   @PrimaryKey(autoGenerate = true) val id: String,
-  val slipNo: Int,
+  val slipNumber: Int,
   val dayOfMonth: Int,
   val month: Int,
   val year: Int,
