@@ -16,9 +16,9 @@ interface AccountEntryDao {
 
 
   //TODO add deletion of older entries logic
-  @Query("DELETE FROM AccountEntryEntity")
-  suspend fun deleteOldAccountEntries(fabricatorId: String)
+//  @Query("DELETE FROM AccountEntryEntity")
+//  suspend fun deleteOldAccountEntries(fabricatorId: String)
 
-  @Query("DELETE FROM AccountEntryEntity")
-  suspend fun deleteAllAccountEntries(fabricatorId: String)
+//  @Query("DELETE FROM AccountEntryEntity")
+//  suspend fun deleteAllAccountEntries(fabricatorId: String)
 }
