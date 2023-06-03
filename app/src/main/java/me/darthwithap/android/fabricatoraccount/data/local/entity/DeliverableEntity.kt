@@ -5,7 +5,7 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class DeliverableEntity(
-  @PrimaryKey(autoGenerate = true) val id: String,
+  @PrimaryKey(autoGenerate = true) val id: Int,
   val fabricatorId: String,
   val finishedGoodId: String,
   val chargePerUnit: Float

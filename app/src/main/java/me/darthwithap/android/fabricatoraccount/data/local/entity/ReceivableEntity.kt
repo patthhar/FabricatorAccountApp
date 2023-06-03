@@ -5,7 +5,7 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class ReceivableEntity(
-  @PrimaryKey(autoGenerate = true) val id: String,
+  @PrimaryKey(autoGenerate = true) val id: Int,
   val itemName: String,
   val quantity: Int,
   val costToFabricator: Float? = null
