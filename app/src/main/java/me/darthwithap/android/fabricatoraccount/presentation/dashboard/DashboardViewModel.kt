@@ -6,12 +6,9 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.channels.Channel
-import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.receiveAsFlow
 import me.darthwithap.android.fabricatoraccount.domain.usecases.dashboard.DashboardUseCases
 import javax.inject.Inject
@@ -29,7 +26,6 @@ class DashboardViewModel @Inject constructor(
   val uiEvent = _uiEvent.receiveAsFlow()
 
   private val getFromFabricatorSlips: Job? = null
-  private var getWeekDates: Job? = null
 
   init {
     // TODO: fetch active slips and today's slips and
@@ -40,11 +36,11 @@ class DashboardViewModel @Inject constructor(
   fun onEvent(event: DashboardEvent) {
     when (event) {
       is DashboardEvent.OnActiveSlipClick -> {
-        // navigate to slipDetails Screen
+        // TODO: navigate to slipDetails Screen
       }
 
       DashboardEvent.OnAddFabricatorSlipClick -> {
-        // show a fab that has two options. Or just show a bottom dialog
+        // TODO: show a fab that has two options. Or just show a bottom dialog
       }
 
       is DashboardEvent.OnDateChange -> {
@@ -55,10 +51,13 @@ class DashboardViewModel @Inject constructor(
       }
 
       DashboardEvent.OnNextWeekClick -> {
-        state = state.copy()
+        state = state.copy(selectedDate = state.selectedDate.plusWeeks(1))
       }
 
-      DashboardEvent.OnPreviousWeekClick -> TODO()
+      DashboardEvent.OnPreviousWeekClick -> {
+        state = state.copy(selectedDate = state.selectedDate.minusWeeks(1))
+      }
+
       is DashboardEvent.OnTodaySlipClick -> TODO()
     }
   }
@@ -73,14 +72,8 @@ class DashboardViewModel @Inject constructor(
   }
 
   private fun refreshWeekDates() {
-    getWeekDates?.cancel()
-    getWeekDates = dashboardUseCases.getWeekDates(state.selectedDate)
-      .onEach { weekDates ->
-        println("Week dates are:" +
-            " ${weekDates.forEach { it.dayOfWeek }}" +
-            " and ${weekDates.forEach { it.month }}"
-        )
-      }
-      .launchIn(viewModelScope)
+    state = state.copy(
+      weekDates = dashboardUseCases.getWeekDates(state.selectedDate)
+    )
   }
 }
