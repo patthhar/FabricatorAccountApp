@@ -6,6 +6,8 @@ import java.time.LocalDate
 
 sealed class DashboardEvent {
   data class OnDateChange(val date: LocalDate) : DashboardEvent()
+  object OnNextWeekClick : DashboardEvent()
+  object OnPreviousWeekClick : DashboardEvent()
   object OnAddFabricatorSlipClick : DashboardEvent()
   data class OnActiveSlipClick(val toFabricatorSlip: ToFabricatorSlip) : DashboardEvent()
   data class OnTodaySlipClick(val todaySlip: FromFabricatorSlip) : DashboardEvent()
