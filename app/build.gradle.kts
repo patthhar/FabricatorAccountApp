@@ -73,7 +73,10 @@ dependencies {
   implementation(libs.room.ktx)
   ksp(libs.room.compiler)
 
-  //Dagger
+  //Dagger Hilt
   implementation(libs.hilt.android)
+  implementation(libs.hilt.navigation.compose)
   kapt(libs.hilt.android.compiler)
+
+
 }
