@@ -36,8 +36,8 @@ import java.time.format.DateTimeFormatter
 fun HorizontalDatePicker(
   selectedDate: LocalDate,
   weekDates: List<LocalDate>,
-  onPreviousDayClick: () -> Unit,
-  onNextDayClick: () -> Unit,
+  onPreviousWeekClick: () -> Unit,
+  onNextWeekClick: () -> Unit,
   onDateSelected: (LocalDate) -> Unit,
   modifier: Modifier = Modifier,
 ) {
@@ -48,7 +48,7 @@ fun HorizontalDatePicker(
     horizontalArrangement = Arrangement.SpaceBetween,
     verticalAlignment = Alignment.CenterVertically
   ) {
-    IconButton(onClick = onPreviousDayClick) {
+    IconButton(onClick = onPreviousWeekClick) {
       Icon(
         imageVector = Icons.Default.ArrowBack,
         contentDescription = stringResource(id = R.string.previous_day)
@@ -64,7 +64,7 @@ fun HorizontalDatePicker(
       }
     }
     Spacer(modifier = Modifier.width(dimens.xs))
-    IconButton(onClick = onNextDayClick) {
+    IconButton(onClick = onNextWeekClick) {
       Icon(
         imageVector = Icons.Default.ArrowForward,
         contentDescription = stringResource(id = R.string.next_day)
