@@ -52,13 +52,17 @@ class DashboardViewModel @Inject constructor(
 
       DashboardEvent.OnNextWeekClick -> {
         state = state.copy(selectedDate = state.selectedDate.plusWeeks(1))
+        refreshWeekDates()
       }
 
       DashboardEvent.OnPreviousWeekClick -> {
         state = state.copy(selectedDate = state.selectedDate.minusWeeks(1))
+        refreshWeekDates()
       }
 
-      is DashboardEvent.OnTodaySlipClick -> TODO()
+      is DashboardEvent.OnSlipClick -> {
+        // TODO: navigate to the FromFabricatorSlip screen
+      }
     }
   }
 

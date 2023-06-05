@@ -10,5 +10,5 @@ sealed class DashboardEvent {
   object OnPreviousWeekClick : DashboardEvent()
   object OnAddFabricatorSlipClick : DashboardEvent()
   data class OnActiveSlipClick(val toFabricatorSlip: ToFabricatorSlip) : DashboardEvent()
-  data class OnTodaySlipClick(val todaySlip: FromFabricatorSlip) : DashboardEvent()
+  data class OnSlipClick(val todaySlip: FromFabricatorSlip) : DashboardEvent()
 }

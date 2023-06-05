@@ -45,13 +45,20 @@ fun DashboardScreen(
         weekDates = state.weekDates,
         onPreviousWeekClick = { viewModel.onEvent(DashboardEvent.OnPreviousWeekClick) },
         onNextWeekClick = { viewModel.onEvent(DashboardEvent.OnNextWeekClick) },
-        onDateSelected = { viewModel.onEvent(DashboardEvent.OnDateChange(state.selectedDate)) },
+        onDateSelected = { date ->
+          viewModel.onEvent(DashboardEvent.OnDateChange(date))
+        },
         modifier = Modifier
           .fillMaxWidth()
           .padding(horizontal = dimens.medium)
       )
       Spacer(modifier = Modifier.height(dimens.medium))
-      SlipItemsList(date = state.selectedDate, slips = state.todaySlips)
+      SlipItemsList(
+        date = state.selectedDate,
+        slips = state.todaySlips
+      ) { slip ->
+        viewModel.onEvent(DashboardEvent.OnSlipClick(slip))
+      }
     }
   }
 }
