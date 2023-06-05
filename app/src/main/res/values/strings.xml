@@ -1,3 +1,10 @@
 <resources>
   <string name="app_name">FabricatorAccount</string>
+  <string name="previous_day">Previous day</string>
+  <string name="next_day">Next day</string>
+
+  <string name="today_slips">Today\'s Slips</string>
+  <string name="yesterday_slips">Yesterday\'s Slips</string>
+  <string name="tomorrow_slips">Tomorrow\'s Slips</string>
+  <string name="slips_from_date">Slips from %s</string>
 </resources>
